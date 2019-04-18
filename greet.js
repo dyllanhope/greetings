@@ -4,4 +4,5 @@ var greetElement = document.querySelector(".name");
 
 greetBtn.addEventListener('click', function(){
     greetElement.innerHTML = "Hello, " + greetFieldText.value.trim();
+    greetFieldText.value='';
 })
