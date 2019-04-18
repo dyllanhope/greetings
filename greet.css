@@ -1,0 +1,26 @@
+.heading{
+    font-size: 80px;
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.nameBox input{
+    float: right;
+    display: block;
+    margin-top:23px;
+    width:50%;
+}
+.nameBox h3{
+    float:left;
+    display:block;
+    margin-bottom: 0px;
+}
+.nameBox button{
+    float: right;
+    display: block;
+}
+.displayBox{
+    border: 1px solid orange;
+    background-color: white;
+}

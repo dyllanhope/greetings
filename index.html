@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="greet.css">
+        <link rel="stylesheet" href="simple-grid.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Greetings</title>
+</head>
+<body background="wallpaper.jpg">
+    <div class="row">
+        <div class="col-4">
+        </div>
+        <div style="text-align: center" class="col-4">
+            <h1 class="heading">Greetings</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-4 nameBox">
+            <h3 style="color:white">Name:</h3>
+            <input class="greetFieldtext" type="text">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-4 nameBox">
+            <button class="greetBtn" type="button">Greet Me</button>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-4">
+            </div>
+            <div class="col-4" class="nameDisplay">
+                <div style="border: 1px solid orange;background-color: white">
+                    <strong>Greet message:</strong>
+                    <span><span class="name"></span></span>
+                </div>
+            </div>
+        </div>
+</body>
+<script src="greet.js"></script>
+</html>
