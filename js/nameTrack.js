@@ -2,11 +2,10 @@ function NameTrack(){
     var timesGreeted = 0;
     var namesGreeted={};
     var nameTrace='';
-    function loadCounter(num){
-        timesGreeted = num;
-    }
-    function loadItems(savedName){
+    
+    function loadItems(num,savedName){
         namesGreeted={};
+        timesGreeted = num;
         nameTrace = savedName;
         var items = savedName.split(',');
         for(var i=0;i<savedName.length;i++){
@@ -34,8 +33,7 @@ function NameTrack(){
     return{
         add : addName,
         counter: displayCounter,
-        load: loadCounter,
-        loadElem : loadItems,
+        load: loadItems,
         string: displayString
     }
 }

@@ -6,16 +6,12 @@ var countElem = document.querySelector(".counterDisplay");
 var resetBtn = document.querySelector(".resetBtn");
 var greetInstance = NameTrack();
 
-if (localStorage['greeted']){
-    greetInstance.load(Number(localStorage['greeted']));
+if ((localStorage['greeted'])&&((localStorage['namelist']))){
+    greetInstance.load(Number(localStorage['greeted']),(localStorage['namelist']));
     countElem.innerHTML = greetInstance.counter();
 }
-if(localStorage['namelist']){
-    greetInstance.loadElem(localStorage['namelist']);
-}
 resetBtn.addEventListener('click',function(){
-    greetInstance.load(0);
-    greetInstance.loadElem('');
+    greetInstance.load(0,'');
     greetElement.innerHTML = '';
     localStorage.clear();
     countElem.innerHTML = greetInstance.counter();
