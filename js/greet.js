@@ -9,7 +9,7 @@ var langError = document.getElementsByClassName("errorLang")
 var greetInstance = NameTrack();
 
 nameError[0].style.display="none";
-langError[0].style.display="none";
+radioLang.checked = true;
 
 if ((localStorage['greeted'])&&((localStorage['namelist']))){
     greetInstance.load(Number(localStorage['greeted']),(localStorage['namelist']));
@@ -23,7 +23,6 @@ resetBtn.addEventListener('click',function(){
 })
 greetBtn.addEventListener('click', function(){
     nameError[0].style.display="none";
-    langError[0].style.display="none";
     var checkedRadioBtn = document.querySelector("input[name='languageChoice']:checked");
     if (checkedRadioBtn){
         var languageType = checkedRadioBtn.value
@@ -36,6 +35,7 @@ greetBtn.addEventListener('click', function(){
         localStorage['greeted'] = greetInstance.counter();
         localStorage['namelist'] = greetInstance.string();
         greetFieldText.classList.remove("warningArea");
+        
     }else if((languageType === "afrikaans")&&(greetFieldText.value.trim()!== "")){
         greetInstance.add(greetFieldText.value.trim());
         greetElement.innerHTML = "Hallo, " + greetFieldText.value.trim();
@@ -44,6 +44,7 @@ greetBtn.addEventListener('click', function(){
         localStorage['greeted'] = greetInstance.counter();
         localStorage['namelist'] = greetInstance.string();
         greetFieldText.classList.remove("warningArea");
+
     }else if((languageType === "isixhosa")&&(greetFieldText.value.trim()!== "")){
         greetInstance.add(greetFieldText.value.trim());
         greetElement.innerHTML = "Molo, " + greetFieldText.value.trim();
@@ -52,12 +53,10 @@ greetBtn.addEventListener('click', function(){
         localStorage['greeted'] = greetInstance.counter();
         localStorage['namelist'] = greetInstance.string();
         greetFieldText.classList.remove("warningArea");
+
     }else if(greetFieldText.value.trim()===''){
         nameError[0].style.display = "block";
         greetFieldText.classList.add("warningArea");
-    }
-    if(radioLang.checked === false){  
-        langError[0].style.display="block";  
     }
     
 })
