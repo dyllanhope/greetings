@@ -12,7 +12,7 @@ if ((localStorage['greeted'])&&((localStorage['namelist']))){
 }
 resetBtn.addEventListener('click',function(){
     greetInstance.load(0,'');
-    greetElement.innerHTML = '';
+    greetElement.innerHTML = ''; 
     localStorage.clear();
     countElem.innerHTML = greetInstance.counter();
 })
@@ -28,22 +28,24 @@ greetBtn.addEventListener('click', function(){
         countElem.innerHTML = greetInstance.counter();
         localStorage['greeted'] = greetInstance.counter();
         localStorage['namelist'] = greetInstance.string();
-    }
-    if((languageType === "afrikaans")&&(greetFieldText.value.trim()!== "")){
+    }else if((languageType === "afrikaans")&&(greetFieldText.value.trim()!== "")){
         greetInstance.add(greetFieldText.value.trim());
         greetElement.innerHTML = "Hallo, " + greetFieldText.value.trim();
         greetFieldText.value='';
         countElem.innerHTML = greetInstance.counter();
         localStorage['greeted'] = greetInstance.counter();
         localStorage['namelist'] = greetInstance.string();
-    }
-    if((languageType === "isixhosa")&&(greetFieldText.value.trim()!== "")){
+    }else if((languageType === "isixhosa")&&(greetFieldText.value.trim()!== "")){
         greetInstance.add(greetFieldText.value.trim());
         greetElement.innerHTML = "Molo, " + greetFieldText.value.trim();
         greetFieldText.value='';
         countElem.innerHTML = greetInstance.counter();
         localStorage['greeted'] = greetInstance.counter();
         localStorage['namelist'] = greetInstance.string();
+    }else if(greetFieldText.value.trim()===''){
+        alert("Please enter your name.");
+    }else{
+        alert("Please select one of the languages below.");
     }
     
 })
