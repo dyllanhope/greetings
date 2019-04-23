@@ -34,4 +34,14 @@
     color: white;
     margin-bottom: 5px;
     margin-top: 5px;
+    float: right;
+}
+.errorLang{
+    color:red;
+}
+.errorName{
+    display: block;
+}
+.warningArea{
+    border:1px solid red;
 }
