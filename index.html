@@ -23,12 +23,37 @@
             <h3 style="color:white">Name:</h3>
             <input class="greetFieldtext" type="text">
         </div>
+        <div class="col-4">
+            <h4 class="counter">Counter:</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+        </div>
+        <div class="col-4 radioBtn">
+            <label class="">
+                <input type="radio" name="languageChoice" class="languageChoiceType" value="english">
+                <span class="label-body radioBtn">English</span>
+            </label>
+            <label class="">
+                <input type="radio" name="languageChoice" class="languageChoiceType" value="afrikaans">
+                <span class="label-body radioBtn">Afrikaans</span>
+            </label>
+            <label class="">
+                <input type="radio" name="languageChoice" class="languageChoiceType" value="isixhosa">
+                <span class="label-body radioBtn">isiXhosa</span>
+            </label>
+        </div>
+        <div class="col-4">
+            <span class="counterDisplay counter" style="margin-left: 60px">0</span>
+        </div>
     </div>
     <div class="row">
         <div class="col-4">
         </div>
         <div class="col-4 nameBox">
             <button class="greetBtn" type="button">Greet Me</button>
+            <button class="resetBtn" type="button" style="margin-right: 10px">Reset</button>
         </div>
     </div>
     <div class="row">
@@ -42,5 +67,6 @@
             </div>
         </div>
 </body>
-<script src="greet.js"></script>
+<script src="greet.js" charset="utf-8"></script>
+<script src="nameTrack.js" charset="utf-8"></script>
 </html>
