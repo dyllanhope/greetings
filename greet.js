@@ -8,37 +8,46 @@ var greetInstance = NameTrack();
 
 if (localStorage['greeted']){
     greetInstance.load(Number(localStorage['greeted']));
-    countElem.innerHTML = counter;
+    countElem.innerHTML = greetInstance.counter();
+}
+if(localStorage['namelist']){
+    greetInstance.loadElem(localStorage['namelist']);
 }
 resetBtn.addEventListener('click',function(){
-    var counter = 0;
-    localStorage['greeted'] = counter;
-    countElem.innerHTML = counter;
+    greetInstance.load(0);
+    greetInstance.loadElem('');
+    greetElement.innerHTML = '';
+    localStorage.clear();
+    countElem.innerHTML = greetInstance.counter();
 })
 greetBtn.addEventListener('click', function(){
     var checkedRadioBtn = document.querySelector("input[name='languageChoice']:checked");
     if (checkedRadioBtn){
         var languageType = checkedRadioBtn.value
     }
-    if(languageType === "english"){
+    if((languageType === "english")&&(greetFieldText.value.trim()!== "")){
         greetInstance.add(greetFieldText.value.trim());
-        greetElement.innerHTML = "Hello, " + greetInstance.name();
+        greetElement.innerHTML = "Hello, " + greetFieldText.value.trim();
         greetFieldText.value='';
         countElem.innerHTML = greetInstance.counter();
         localStorage['greeted'] = greetInstance.counter();
+        localStorage['namelist'] = greetInstance.string();
     }
-    if(languageType === "afrikaans"){
+    if((languageType === "afrikaans")&&(greetFieldText.value.trim()!== "")){
         greetInstance.add(greetFieldText.value.trim());
-        greetElement.innerHTML = "Hallo, " + greetInstance.name();
+        greetElement.innerHTML = "Hallo, " + greetFieldText.value.trim();
         greetFieldText.value='';
         countElem.innerHTML = greetInstance.counter();
         localStorage['greeted'] = greetInstance.counter();
+        localStorage['namelist'] = greetInstance.string();
     }
-    if(languageType === "isixhosa"){
+    if((languageType === "isixhosa")&&(greetFieldText.value.trim()!== "")){
         greetInstance.add(greetFieldText.value.trim());
-        greetElement.innerHTML = "Molo, " + greetInstance.name();
+        greetElement.innerHTML = "Molo, " + greetFieldText.value.trim();
         greetFieldText.value='';
         countElem.innerHTML = greetInstance.counter();
         localStorage['greeted'] = greetInstance.counter();
+        localStorage['namelist'] = greetInstance.string();
     }
+    
 })

@@ -2,27 +2,40 @@ function NameTrack(){
     var timesGreeted = 0;
     var namesGreeted={};
     var nameTrace='';
-    function loadCount(num){
+    function loadCounter(num){
         timesGreeted = num;
     }
-    function addName(userName){
-        if(namesGreeted[userName]===undefined){
-            timesGreeted++;
-            namesGreeted[userName] = 0;
-            nameTrace = userName;
+    function loadItems(savedName){
+        namesGreeted={};
+        nameTrace = savedName;
+        var items = savedName.split(',');
+        for(var i=0;i<savedName.length;i++){
+            var item = items[i];
+            if(namesGreeted[item]===undefined){
+                namesGreeted[item] = 0;
+            }
         }
     }
-    function displayName(){
-        return nameTrace;
+    function addName(userName){
+        var temp = userName.charAt(0).toUpperCase() + userName.slice(1);
+        if(namesGreeted[temp]===undefined){
+            timesGreeted++;
+            namesGreeted[temp] = 0;
+            nameTrace += temp + ',';
+        }
     }
     function displayCounter(){
         return timesGreeted;
+    }
+    function displayString(){
+        return nameTrace;
     }
 
     return{
         add : addName,
         counter: displayCounter,
-        load : loadCount,
-        name: displayName
+        load: loadCounter,
+        loadElem : loadItems,
+        string: displayString
     }
 }
