@@ -32,7 +32,7 @@ greetBtn.addEventListener('click', function(){
     }
 
     if(greetFieldText.value.trim()!== ""){
-        greetElement.innerHTML = greetInstance.add(greetFieldText.value.trim(), languageType);
+        greetElement.innerHTML = greetInstance.greet(greetFieldText.value.trim(), languageType);
         greetFieldText.value='';
         countElem.innerHTML = greetInstance.counter();
         localStorage['namelist'] = JSON.stringify(greetInstance.items());

@@ -1,20 +1,20 @@
 function NameTrack(nameList){
-    var namesGreeted= nameList; 
+    var namesGreeted= nameList || {}; 
     
     function loadItems(){
         namesGreeted={};
     }
     function addName(userName, lang){
-        var upFirst = userName.charAt(0).toUpperCase() + userName.slice(1);
+        var upFirst = userName.toUpperCase();
         if(namesGreeted[upFirst]===undefined){
             namesGreeted[upFirst] = 0;
         }
         if (lang === "english"){
-            return "Hello, " + upFirst;
+            return "Hello, " + userName;
         }else if(lang === "afrikaans"){
-            return "Hallo, " + upFirst;
+            return "Hallo, " + userName;
         } else if(lang === "isixhosa"){
-            return "Molo, " + upFirst;
+            return "Molo, " + userName;
         }
 
     }
@@ -27,7 +27,7 @@ function NameTrack(nameList){
     }
 
     return{
-        add : addName,
+        greet : addName,
         counter: displayCounter,
         load: loadItems,
         items: displayString
