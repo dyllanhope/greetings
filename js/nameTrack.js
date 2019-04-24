@@ -1,33 +1,23 @@
-function NameTrack(){
-    var timesGreeted = 0;
-    var namesGreeted={};
-    var nameTrace='';
+function NameTrack(count,nameList){
+    var timesGreeted = count;
+    var namesGreeted= nameList;
     
-    function loadItems(num,savedName){
+    function loadItems(num){
         namesGreeted={};
         timesGreeted = num;
-        nameTrace = savedName;
-        var items = savedName.split(',');
-        for(var i=0;i<savedName.length;i++){
-            var item = items[i];
-            if(namesGreeted[item]===undefined){
-                namesGreeted[item] = 0;
-            }
-        }
     }
     function addName(userName, lang){
         var temp = userName.charAt(0).toUpperCase() + userName.slice(1);
         if(namesGreeted[temp]===undefined){
             timesGreeted++;
             namesGreeted[temp] = 0;
-            nameTrace += temp + ',';
         }
         if (lang === "english"){
-            return "Hello, " + userName;
+            return "Hello, " + temp;
         }else if(lang === "afrikaans"){
-            return "Hallo, " + userName;
+            return "Hallo, " + temp;
         } else if(lang === "isixhosa"){
-            return "Molo, " + userName;
+            return "Molo, " + temp;
         }
 
     }
@@ -35,13 +25,13 @@ function NameTrack(){
         return timesGreeted;
     }
     function displayString(){
-        return nameTrace;
+        return namesGreeted;
     }
 
     return{
         add : addName,
         counter: displayCounter,
         load: loadItems,
-        string: displayString
+        items: displayString
     }
 }
