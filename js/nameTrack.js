@@ -7,17 +7,17 @@ function NameTrack(count,nameList){
         timesGreeted = num;
     }
     function addName(userName, lang){
-        var temp = userName.charAt(0).toUpperCase() + userName.slice(1);
-        if(namesGreeted[temp]===undefined){
+        var upFirst = userName.charAt(0).toUpperCase() + userName.slice(1);
+        if(namesGreeted[upFirst]===undefined){
             timesGreeted++;
-            namesGreeted[temp] = 0;
+            namesGreeted[upFirst] = 0;
         }
         if (lang === "english"){
-            return "Hello, " + temp;
+            return "Hello, " + upFirst;
         }else if(lang === "afrikaans"){
-            return "Hallo, " + temp;
+            return "Hallo, " + upFirst;
         } else if(lang === "isixhosa"){
-            return "Molo, " + temp;
+            return "Molo, " + upFirst;
         }
 
     }
