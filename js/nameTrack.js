@@ -1,15 +1,12 @@
-function NameTrack(count,nameList){
-    var timesGreeted = count;
-    var namesGreeted= nameList;
+function NameTrack(nameList){
+    var namesGreeted= nameList; 
     
-    function loadItems(num){
+    function loadItems(){
         namesGreeted={};
-        timesGreeted = num;
     }
     function addName(userName, lang){
         var upFirst = userName.charAt(0).toUpperCase() + userName.slice(1);
         if(namesGreeted[upFirst]===undefined){
-            timesGreeted++;
             namesGreeted[upFirst] = 0;
         }
         if (lang === "english"){
@@ -22,7 +19,8 @@ function NameTrack(count,nameList){
 
     }
     function displayCounter(){
-        return timesGreeted;
+        var numberOfNames = Object.keys(namesGreeted);
+        return numberOfNames.length;
     }
     function displayString(){
         return namesGreeted;

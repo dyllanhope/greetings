@@ -19,6 +19,15 @@
 .nameBox button{
     float: right;
     display: block;
+    color: black;
+    background-color: white;
+    border:2px solid white;
+}
+.nameBox button:hover{
+    float: right;
+    display: block;
+    border:2px solid gray;
+    
 }
 .displayBox{
     border: 1px solid orange;

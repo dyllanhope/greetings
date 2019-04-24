@@ -5,18 +5,13 @@ var radioLang = document.querySelector(".languageChoiceType");
 var countElem = document.querySelector(".counterDisplay");
 var resetBtn = document.querySelector(".resetBtn");
 var nameError = document.getElementsByClassName("errorName");
-if (localStorage['greeted']){
-    var storedCount = Number(localStorage['greeted']);
-}else{
-    var storedCount = 0;
-}
 if(localStorage['namelist']){
     var storedNames = JSON.parse(localStorage['namelist'])
 }else{
     var storedNames = {};
 }
 
-var greetInstance = NameTrack(storedCount,storedNames);
+var greetInstance = NameTrack(storedNames);
 
 nameError[0].style.display="none";
 radioLang.checked = true;
@@ -24,7 +19,7 @@ radioLang.checked = true;
 countElem.innerHTML = greetInstance.counter();
 
 resetBtn.addEventListener('click',function(){
-    greetInstance.load(0,'');
+    greetInstance.load();
     greetElement.innerHTML = ''; 
     localStorage.clear();
     countElem.innerHTML = greetInstance.counter();
@@ -40,7 +35,6 @@ greetBtn.addEventListener('click', function(){
         greetElement.innerHTML = greetInstance.add(greetFieldText.value.trim(), languageType);
         greetFieldText.value='';
         countElem.innerHTML = greetInstance.counter();
-        localStorage['greeted'] = greetInstance.counter(); 
         localStorage['namelist'] = JSON.stringify(greetInstance.items());
         greetFieldText.classList.remove("warningArea");
 
