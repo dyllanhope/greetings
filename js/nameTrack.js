@@ -15,13 +15,21 @@ function NameTrack(){
             }
         }
     }
-    function addName(userName){
+    function addName(userName, lang){
         var temp = userName.charAt(0).toUpperCase() + userName.slice(1);
         if(namesGreeted[temp]===undefined){
             timesGreeted++;
             namesGreeted[temp] = 0;
             nameTrace += temp + ',';
         }
+        if (lang === "english"){
+            return "Hello, " + userName;
+        }else if(lang === "afrikaans"){
+            return "Hallo, " + userName;
+        } else if(lang === "isixhosa"){
+            return "Molo, " + userName;
+        }
+
     }
     function displayCounter(){
         return timesGreeted;

@@ -27,30 +27,12 @@ greetBtn.addEventListener('click', function(){
     if (checkedRadioBtn){
         var languageType = checkedRadioBtn.value
     }
-    if((languageType === "english")&&(greetFieldText.value.trim()!== "")){
-        greetInstance.add(greetFieldText.value.trim());
-        greetElement.innerHTML = "Hello, " + greetFieldText.value.trim();
+    
+    if(greetFieldText.value.trim()!== ""){
+        greetElement.innerHTML = greetInstance.add(greetFieldText.value.trim(), languageType);;
         greetFieldText.value='';
         countElem.innerHTML = greetInstance.counter();
-        localStorage['greeted'] = greetInstance.counter();
-        localStorage['namelist'] = greetInstance.string();
-        greetFieldText.classList.remove("warningArea");
-        
-    }else if((languageType === "afrikaans")&&(greetFieldText.value.trim()!== "")){
-        greetInstance.add(greetFieldText.value.trim());
-        greetElement.innerHTML = "Hallo, " + greetFieldText.value.trim();
-        greetFieldText.value='';
-        countElem.innerHTML = greetInstance.counter();
-        localStorage['greeted'] = greetInstance.counter();
-        localStorage['namelist'] = greetInstance.string();
-        greetFieldText.classList.remove("warningArea");
-
-    }else if((languageType === "isixhosa")&&(greetFieldText.value.trim()!== "")){
-        greetInstance.add(greetFieldText.value.trim());
-        greetElement.innerHTML = "Molo, " + greetFieldText.value.trim();
-        greetFieldText.value='';
-        countElem.innerHTML = greetInstance.counter();
-        localStorage['greeted'] = greetInstance.counter();
+        localStorage['greeted'] = greetInstance.counter(); 
         localStorage['namelist'] = greetInstance.string();
         greetFieldText.classList.remove("warningArea");
 
