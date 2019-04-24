@@ -46,9 +46,9 @@ describe('NameTrack function', function(){
         var greetCheckOne = NameTrack();
         assert.equal(greetCheckOne.greet("Dyllan","isixhosa"),"Molo, Dyllan");
     })
-    it('Should return nothing with the name input but no language', function(){
+    it('Should return the default language setting with the name input but no language input', function(){
         var greetCheckOne = NameTrack();
-        assert.equal(greetCheckOne.greet("Dyllan"),);
+        assert.equal(greetCheckOne.greet("Dyllan"),"Hello, Dyllan");
     })
 
 })

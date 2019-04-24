@@ -15,6 +15,8 @@ function NameTrack(nameList){
             return "Hallo, " + userName;
         } else if(lang === "isixhosa"){
             return "Molo, " + userName;
+        }else {
+            return "Hello, " + userName;
         }
 
     }
