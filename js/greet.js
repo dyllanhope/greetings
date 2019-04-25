@@ -38,7 +38,7 @@ greetBtn.addEventListener('click', function(){
         localStorage['namelist'] = JSON.stringify(greetInstance.items());
         greetFieldText.classList.remove("warningArea");
 
-    }else if(greetFieldText.value.trim()===''){
+    }else if(greetInstance.error()==="error"){
         nameError[0].style.display = "block";
         greetFieldText.classList.add("warningArea");
     }

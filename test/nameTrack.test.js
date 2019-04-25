@@ -50,5 +50,11 @@ describe('NameTrack function', function(){
         var greetCheckOne = NameTrack();
         assert.equal(greetCheckOne.greet("Dyllan"),"Hello, Dyllan");
     })
+    it('Should return "error" when there was no name input', function(){
+        var greetCheckOne = NameTrack();
+        greetCheckOne.greet('');
+        assert.equal(greetCheckOne.error(),"error");
+    })
+
 
 })

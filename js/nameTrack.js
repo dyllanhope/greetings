@@ -1,11 +1,13 @@
 function NameTrack(nameList){
     var namesGreeted= nameList || {}; 
-    
+    var errName = '';
+
     function loadItems(){
         namesGreeted={};
     }
     function addName(userName, lang){
         var upFirst = userName.toUpperCase();
+        errName = userName;
         if(namesGreeted[upFirst]===undefined){
             namesGreeted[upFirst] = 0;
         }
@@ -27,11 +29,17 @@ function NameTrack(nameList){
     function displayString(){
         return namesGreeted;
     }
+    function errorCheck(){
+        if (errName === ''){
+            return 'error';
+        }
+    }
 
     return{
         greet : addName,
         counter: displayCounter,
         load: loadItems,
-        items: displayString
+        items: displayString,
+        error: errorCheck
     }
 }
