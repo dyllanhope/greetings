@@ -1,42 +1,46 @@
-function NameTrack(nameList){
-    var namesGreeted= nameList || {}; 
+function NameTrack(nameList) {
+    var namesGreeted = nameList || {};
     var errName = '';
 
-    function loadItems(){
-        namesGreeted={};
+    function loadItems() {
+        namesGreeted = {};
     }
-    function addName(userName, lang){
+    function addName(userName, lang) {
         var upFirst = userName.toUpperCase();
+        const regex = /\d/;
+        var numTest = regex.test(userName);
         errName = userName;
-        if(namesGreeted[upFirst]===undefined){
-            namesGreeted[upFirst] = 0;
+        if (numTest === false) {
+            if (namesGreeted[upFirst] === undefined) {
+                namesGreeted[upFirst] = 0;
+            }
         }
-        if (lang === "english"){
+        if (lang === "english") {
             return "Hello, " + userName;
-        }else if(lang === "afrikaans"){
+        } else if (lang === "afrikaans") {
             return "Hallo, " + userName;
-        } else if(lang === "isixhosa"){
+        } else if (lang === "isixhosa") {
             return "Molo, " + userName;
-        }else {
+        } else {
             return "Hello, " + userName;
         }
 
     }
-    function displayCounter(){
+    function displayCounter() {
         var numberOfNames = Object.keys(namesGreeted);
         return numberOfNames.length;
     }
-    function displayString(){
+    function displayString() {
         return namesGreeted;
     }
-    function errorCheck(){
-        if (errName === ''){
+    function errorCheck() {
+        if (errName === '') {
             return 'error';
         }
     }
 
-    return{
-        greet : addName,
+    return {
+        greet: addName,
         counter: displayCounter,
         load: loadItems,
         items: displayString,
